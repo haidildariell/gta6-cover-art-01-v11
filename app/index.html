@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tideline Cover Press — VELVET TIDE</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>Tideline Cover Press</h1>
+    <p class="sub">Your photo, six panels, one golden-hour poster. 100% offline — photos never leave this machine.</p>
+
+    <label>Title <input id="title" type="text" maxlength="24" value="VELVET TIDE"></label>
+    <label>Press quote <input id="quote" type="text" maxlength="60" value="EVERY FRAME DRIPS WITH SUNLIGHT AND SIN"></label>
+    <label>Script line <input id="script" type="text" maxlength="40" value="salt on the wind"></label>
+    <label>Tagline <input id="tagline" type="text" maxlength="70" value="SIX STRANGERS · ONE BURNING COAST · EVERY DEBT COMES DUE"></label>
+
+    <fieldset>
+      <legend>Post size</legend>
+      <div class="row">
+        <button data-size-btn="landscape" type="button">Landscape 1920×1080</button>
+        <button data-size-btn="square" type="button">Square 1080×1080</button>
+        <button data-size-btn="story" type="button">Story 1080×1350</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="row">
+        <button data-layout-btn="mosaic" type="button">Mosaic Tilt</button>
+        <button data-layout-btn="straight" type="button">Straight Grid</button>
+        <button data-layout-btn="cinema" type="button">Cinema Hero</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Sunset grade — one grade, every panel</legend>
+      <div class="row">
+        <button data-grade-btn="golden" type="button">Golden Hour</button>
+        <button data-grade-btn="neon" type="button">Neon Dusk</button>
+        <button data-grade-btn="palm" type="button">Palm Heat</button>
+        <button data-grade-btn="vintage" type="button">Vintage Fade</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Panel: <span id="panel-name">THE BOSS</span></legend>
+      <div class="row wrap">
+        <button data-panel-btn="boss" type="button">Boss</button>
+        <button data-panel-btn="driver" type="button">Driver</button>
+        <button data-panel-btn="rider" type="button">Rider</button>
+        <button data-panel-btn="courier" type="button">Courier</button>
+        <button data-panel-btn="mechanic" type="button">Mechanic</button>
+        <button data-panel-btn="lookout" type="button">Lookout</button>
+      </div>
+      <label>Zoom <input id="zoom" type="range" min="0.6" max="2" step="0.01" value="1.22"></label>
+      <label>Pan left–right <input id="panx" type="range" min="-1" max="1" step="0.01" value="0"></label>
+      <label>Pan up–down <input id="pany" type="range" min="-1" max="1" step="0.01" value="0"></label>
+      <div class="row">
+        <label class="file-btn">Replace photo <input id="replace-photo" type="file" accept="image/*"></label>
+        <button id="reset-crop" type="button">Reset crop</button>
+      </div>
+    </fieldset>
+
+    <div class="row">
+      <button id="undo" type="button">Undo</button>
+      <button id="redo" type="button">Redo</button>
+    </div>
+    <div class="row">
+      <button data-export-btn="landscape" type="button">PNG Landscape</button>
+      <button data-export-btn="square" type="button">PNG Square</button>
+      <button data-export-btn="story" type="button">PNG Story</button>
+    </div>
+    <button id="export-all" type="button" class="primary">Export all 3 sizes</button>
+    <p id="status" role="status"></p>
+    <p class="fine">Original art &amp; lettering by Tideline Cover Press. No Rockstar Games logo, artwork or fonts. Cast photos generated for this cover.</p>
+  </section>
+  <section class="preview" aria-label="Live cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
